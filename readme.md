@@ -25,8 +25,11 @@ pnpm add rsa
 ### 1. Define your action
 
 ```typescript
-import { SafeAction } from "rsa";
+import { ReactSafeAction } from "rsa";
 import { z } from "zod";
+
+// create a safe action and reuse anywhere
+export const rsa = new ReactSafeAction();
 
 // Define your input schema
 const loginSchema = z.object({
@@ -35,12 +38,10 @@ const loginSchema = z.object({
 });
 
 // Create a safe action
-const loginAction = new SafeAction()
-  .schema(loginSchema)
-  .action(async (data) => {
-    // Your login logic here
-    return { success: true };
-  });
+const loginAction = rsa.schema(loginSchema).action(async (data) => {
+  // Your login logic here
+  return { success: true };
+});
 ```
 
 ### 2. Use the action in your component
@@ -72,12 +73,12 @@ function LoginForm() {
 
 ## API Reference
 
-### `SafeAction`
+### `ReactSafeAction`
 
 Creates a new safe action with optional schema validation.
 
 ```typescript
-new SafeAction().schema(zodSchema).action((data) => Promise<Result>);
+new ReactSafeAction().schema(zodSchema).action((data) => Promise<Result>);
 ```
 
 ### `useAction`
@@ -120,58 +121,3 @@ RSA provides structured error handling for both validation and request errors:
 ## License
 
 MIT
-
----
-
-package.json:
-
-```json
-{
-  "name": "rsa",
-  "version": "1.0.0",
-  "description": "Type-safe action handler for React applications with built-in Zod validation",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
-  "files": ["dist"],
-  "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts",
-    "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
-    "test": "jest",
-    "lint": "eslint src/**/*.ts",
-    "clean": "rm -rf dist"
-  },
-  "keywords": [
-    "react",
-    "form",
-    "validation",
-    "zod",
-    "typescript",
-    "type-safe",
-    "actions"
-  ],
-  "author": "",
-  "license": "MIT",
-  "peerDependencies": {
-    "react": ">=16.8.0",
-    "zod": "^3.0.0"
-  },
-  "devDependencies": {
-    "@types/react": "^18.0.0",
-    "@typescript-eslint/eslint-plugin": "^5.0.0",
-    "@typescript-eslint/parser": "^5.0.0",
-    "eslint": "^8.0.0",
-    "jest": "^29.0.0",
-    "tsup": "^7.0.0",
-    "typescript": "^5.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/yourusername/rsa.git"
-  },
-  "bugs": {
-    "url": "https://github.com/yourusername/rsa/issues"
-  },
-  "homepage": "https://github.com/yourusername/rsa#readme"
-}
-```
