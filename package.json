@@ -1,0 +1,31 @@
+{
+  "name": "rsa",
+  "version": "1.0.0",
+  "description": "React Safe Action",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "Usman Hassan",
+  "contributors": [
+    {
+      "name": "Usman Hassan",
+      "email": "usmanhassangu@gmail.com",
+      "url": "https://github.com/usmangurowa",
+      "twitter": "https://twitter.com/usmangurowa"
+    }
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^19.0.6",
+    "react": "^19.0.0",
+    "typescript": "^5.7.3",
+    "zod": "^3.24.1"
+  }
+}
