@@ -1,6 +1,4 @@
-import React from "react";
-import { z, ZodError } from "zod";
-import { ActionPropsCallback } from "./types";
+import { z } from "zod";
 
 class SafeAction<S extends z.ZodType = z.ZodType> {
   private _schema: S | null = null;
