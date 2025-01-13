@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "React Safe Action: Type-safe action handler for React applications with built-in Zod validation",
   "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
     "dist/"
@@ -33,11 +34,23 @@
   "license": "MIT",
   "devDependencies": {
     "@types/react": "^19.0.6",
-    "typescript": "^5.7.3",
-    "tsup": "^8.3.5"
+    "@typescript-eslint/eslint-plugin": "^8.20.0",
+    "@typescript-eslint/parser": "^8.20.0",
+    "eslint": "^9.18.0",
+    "jest": "^29.7.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.3"
   },
   "peerDependencies": {
     "react": "^19.0.0",
     "zod": "^3.24.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/usmangurowa/rsa.git"
+  },
+  "bugs": {
+    "url": "https://github.com/usmangurowa/rsa/issues"
+  },
+  "homepage": "https://github.com/usmangurowa/rsa#readme"
 }
