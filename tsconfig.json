@@ -1,27 +1,37 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    // Type Checking
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noUncheckedIndexedAccess": true,
 
-    "module": "esnext",
-
+    // Modules
+    "module": "ESNext",
     "moduleResolution": "node",
-
-    "lib": ["esnext"],
-
-    "allowJs": true,
-
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
 
-    "forceConsistentCasingInFileNames": true,
-
-    "strict": true,
-
+    // Emit
+    "declaration": true,
+    "declarationMap": true,
     "sourceMap": true,
+    "outDir": "./dist",
+    "skipLibCheck": true,
 
-    "outDir": "dist"
+    // Environment
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "jsx": "react",
+
+    // Project
+    "rootDir": "./src",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
-
   "include": ["src/**/*"],
-
-  "exclude": ["node_modules", "dist"]
+  "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.spec.ts"]
 }
