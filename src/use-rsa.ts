@@ -25,16 +25,17 @@ export const useAction = <
         const res = await action(payload);
         callback?.onSuccess?.(res);
         setStatus("success");
-      } catch (error) {
-        const errors = { request: {}, validation: {} };
+      } catch (error: unknown) {
+        const errors = {
+          request: {} as { [key: string]: string },
+          validation: {} as { [key: string]: string }
+        };
         if (error instanceof ZodError && "issues" in error) {
           error.issues.map((issue) => {
             errors.validation[issue.path.join(".")] = issue.message;
           });
         } else {
-          errors.request = error?.message
-            ? { message: error.message, ...error }
-            : error;
+          errors.request = error as { [key: string]: string };
         }
         callback?.onError?.({
           error: errors,
