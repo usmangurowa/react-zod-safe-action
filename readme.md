@@ -78,7 +78,8 @@ function LoginForm() {
 Creates a new safe action with optional schema validation.
 
 ```typescript
-new ReactSafeAction().schema(zodSchema).action((data) => Promise<Result>);
+const rsa = new ReactSafeAction();
+rsa.schema(zodSchema).action((data) => Promise<Result>);
 ```
 
 ### `useAction`
