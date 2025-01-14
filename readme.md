@@ -1,4 +1,4 @@
-# React Safe Action (RSA)
+# React Safe Action (react-zod-safe-action)
 
 A type-safe action handler for React applications with built-in form validation using Zod.
 
@@ -13,11 +13,11 @@ A type-safe action handler for React applications with built-in form validation 
 ## Installation
 
 ```bash
-npm install rsa
+npm install react-zod-safe-action
 # or
-yarn add rsa
+yarn add react-zod-safe-action
 # or
-pnpm add rsa
+pnpm add react-zod-safe-action
 ```
 
 ## Usage
@@ -25,11 +25,11 @@ pnpm add rsa
 ### 1. Define your action
 
 ```typescript
-import { ReactSafeAction } from "rsa";
+import { SafeAction } from "react-zod-safe-action";
 import { z } from "zod";
 
 // create a safe action and reuse anywhere
-export const rsa = new ReactSafeAction();
+export const actionClient = new SafeAction();
 
 // Define your input schema
 const loginSchema = z.object({
@@ -38,7 +38,7 @@ const loginSchema = z.object({
 });
 
 // Create a safe action
-const loginAction = rsa.schema(loginSchema).action(async (data) => {
+const loginAction = actionClient.schema(loginSchema).action(async (data) => {
   // Your login logic here
   return { success: true };
 });
@@ -47,7 +47,7 @@ const loginAction = rsa.schema(loginSchema).action(async (data) => {
 ### 2. Use the action in your component
 
 ```typescript
-import { useAction } from "rsa";
+import { useAction } from "react-zod-safe-action";
 
 function LoginForm() {
   const { execute, status, loading } = useAction(loginAction, {
@@ -73,13 +73,13 @@ function LoginForm() {
 
 ## API Reference
 
-### `ReactSafeAction`
+### `SafeAction`
 
 Creates a new safe action with optional schema validation.
 
 ```typescript
-const rsa = new ReactSafeAction();
-rsa.schema(zodSchema).action((data) => Promise<Result>);
+const actionClient = new SafeAction();
+actionClient.schema(zodSchema).action((data) => Promise<Result>);
 ```
 
 ### `useAction`
@@ -106,7 +106,7 @@ const {
 
 ## Error Handling
 
-RSA provides structured error handling for both validation and request errors:
+react-zod-safe-action provides structured error handling for both validation and request errors:
 
 ```typescript
 {
@@ -122,3 +122,5 @@ RSA provides structured error handling for both validation and request errors:
 ## License
 
 MIT
+
+react-zod-safe-action (rzsa)

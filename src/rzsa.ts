@@ -1,10 +1,10 @@
 import { z } from "zod";
 
-class ReactSafeAction<S extends z.ZodType = z.ZodType> {
+class SafeAction<S extends z.ZodType = z.ZodType> {
   private _schema: S | null = null;
 
   schema<S2 extends z.ZodType>(schema: S2) {
-    return new ReactSafeAction<S2>(schema);
+    return new SafeAction<S2>(schema);
   }
 
   constructor(schema?: S) {
@@ -33,4 +33,4 @@ class ReactSafeAction<S extends z.ZodType = z.ZodType> {
   }
 }
 
-export default ReactSafeAction;
+export default SafeAction;

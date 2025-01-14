@@ -1,5 +1,5 @@
 {
-  "name": "rsa",
+  "name": "react-zod-safe-action",
   "version": "0.1.0",
   "description": "React Safe Action: Type-safe action handler for React applications with built-in Zod validation",
   "main": "dist/index.js",
@@ -49,10 +49,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/usmangurowa/rsa.git"
+    "url": "https://github.com/usmangurowa/react-zod-safe-action.git"
   },
   "bugs": {
-    "url": "https://github.com/usmangurowa/rsa/issues"
+    "url": "https://github.com/usmangurowa/react-zod-safe-action/issues"
   },
-  "homepage": "https://github.com/usmangurowa/rsa#readme"
+  "homepage": "https://github.com/usmangurowa/react-zod-safe-action#readme"
 }
