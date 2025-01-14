@@ -122,5 +122,3 @@ react-zod-safe-action provides structured error handling for both validation and
 ## License
 
 MIT
-
-react-zod-safe-action (rzsa)
