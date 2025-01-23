@@ -14,8 +14,11 @@ export const useAction = <
     "idle" | "executing" | "error" | "success"
   >("idle");
 
+  const [result, setResult] = React.useState<Output | null>(null);
+
   const reset = React.useCallback(() => {
     setStatus("idle");
+    setResult(null);
   }, []);
 
   const execute = React.useCallback(
@@ -24,6 +27,7 @@ export const useAction = <
         setStatus("executing");
         const res = await action(payload);
         callback?.onSuccess?.(res);
+        setResult(res);
         setStatus("success");
       } catch (error: unknown) {
         const errors = {
@@ -47,5 +51,5 @@ export const useAction = <
     [action, callback]
   );
 
-  return { execute, status, loading: status === "executing", reset };
+  return { execute, status, loading: status === "executing", reset, result };
 };
