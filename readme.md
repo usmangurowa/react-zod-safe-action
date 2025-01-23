@@ -91,6 +91,7 @@ const {
   execute, // Function to execute the action
   status,  // 'idle' | 'executing' | 'error' | 'success'
   loading, // boolean
+  result, // returned result from the action
   reset    // Function to reset the state
 } = useAction(action, {
   onSuccess?: (data: Result) => void,

@@ -1,6 +1,6 @@
 {
   "name": "react-zod-safe-action",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "React Safe Action: Type-safe action handler for React applications with built-in Zod validation",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
